@@ -47,3 +47,11 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Archives
+*.zip
+*.tar.gz
+*.tgz
+
+
+.vercel

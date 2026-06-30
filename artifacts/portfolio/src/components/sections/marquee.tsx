@@ -1,9 +1,11 @@
 import React from 'react';
 
-const TECH_ITEMS = [
-  "React", "Next.js", "TypeScript", "Tailwind CSS", "GraphQL", "Node.js", 
-  "Figma", "Git", "Vite", "Redux", "Vercel", "Framer Motion"
-];
+import { portfolioData } from '@/data/portfolio';
+
+// Extract all unique items from skills categories
+const TECH_ITEMS = Array.from(
+  new Set(portfolioData.skills.flatMap(group => group.items))
+);
 
 // Double the items so the scroll is perfectly seamless
 const SCROLL_ITEMS = [...TECH_ITEMS, ...TECH_ITEMS];

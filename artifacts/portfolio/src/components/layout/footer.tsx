@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Twitter } from 'lucide-react';
+import { portfolioData } from '@/data/portfolio';
 
 export default function Footer() {
   return (
@@ -10,26 +11,32 @@ export default function Footer() {
             <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-primary-foreground font-serif font-bold text-sm">
               RP
             </div>
-            <span className="font-serif font-medium">Rajnish Patel</span>
+            <span className="font-serif font-medium">{portfolioData.personalInfo.name}</span>
           </div>
 
           <p className="text-muted-foreground text-sm flex items-center gap-1.5">
-            © {new Date().getFullYear()} Rajnish Patel. Crafted with React & ☕
+            © {new Date().getFullYear()} {portfolioData.personalInfo.name}. Crafted with React & ☕
           </p>
 
           <div className="flex items-center gap-4">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors outline-none focus-visible:text-primary">
-              <Github size={20} />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors outline-none focus-visible:text-primary">
-              <Linkedin size={20} />
-              <span className="sr-only">LinkedIn</span>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors outline-none focus-visible:text-primary">
-              <Twitter size={20} />
-              <span className="sr-only">Twitter</span>
-            </a>
+            {!portfolioData.socialLinks.github.startsWith('TODO') && (
+              <a href={portfolioData.socialLinks.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors outline-none focus-visible:text-primary">
+                <Github size={20} />
+                <span className="sr-only">GitHub</span>
+              </a>
+            )}
+            {!portfolioData.socialLinks.linkedin.startsWith('TODO') && (
+              <a href={portfolioData.socialLinks.linkedin} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors outline-none focus-visible:text-primary">
+                <Linkedin size={20} />
+                <span className="sr-only">LinkedIn</span>
+              </a>
+            )}
+            {!portfolioData.socialLinks.twitter.startsWith('TODO') && (
+              <a href={portfolioData.socialLinks.twitter} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors outline-none focus-visible:text-primary">
+                <Twitter size={20} />
+                <span className="sr-only">Twitter</span>
+              </a>
+            )}
           </div>
         </div>
       </div>
